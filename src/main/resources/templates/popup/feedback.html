@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/jquery-labelauty.css">
+
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+
+    <style>
+        ul { list-style-type: none;}
+        li { display: inline-block;}
+        li { margin: 10px 0;}
+    </style>
+</head>
+
+<body>
+<div style="padding: 10px;">
+    <form>
+        <div class="layui-form-item" style="margin-bottom: 0;">
+            <input type="text" name="userEmail" id="userEmail" required  lay-verify="quertionIntroduction" placeholder="您的邮箱" autocomplete="off" class="layui-input">
+
+            <textarea id="edit"></textarea>
+            <div class="layui-input-block" style="float: right;margin: 15px 0 0 0">
+                <button class="layui-btn" lay-submit lay-filter="formDemo" style="background-color: #00a8c6;">立即提交</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+
+<script>
+    $(function(){
+        $(':input').labelauty();
+    });
+
+
+    layui.use(['layer','layedit','form'], function(){
+        var layedit = layui.layedit;
+        var layer = layui.layer
+            ,form = layui.form;
+        var $ = layui.$;
+        var index = layedit.build('edit'); //建立编辑器
+
+
+        form.on('submit(formDemo)', function(data){
+
+            var userEmail = $('input[name=userEmail]').val();
+            if (userEmail.length == 0){
+                console.log(userEmail);
+                layer.msg("邮箱不能为空");
+                return false;
+            };
+
+            var emailReg = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+            if (!emailReg.test(userEmail)){
+                layer.msg("邮箱格式错误");
+                return false;
+            };
+
+            var content = layedit.getText(index);
+            if (content.length == 0){
+                layer.msg("内容不能为空");
+                return false;
+            };
+
+            var feedback={
+                "userEmail":userEmail,
+                "content":content,
+            };
+
+            $.ajax({
+                type:"POST",
+                url:"/user/feedback",
+                data:feedback,
+                success:function (res) {
+                    if (res.success){
+                        layer.msg('反馈提交成功',{
+                            icon: 1,
+                            time: 1000
+                        },function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            parent.layer.close(index);
+                        });
+
+                    } else {
+                        layer.msg(res.errorInfo);
+                    }
+                }
+            });
+
+
+            return false;
+        });
+    });
+
+
+
+</script>
+<script type="text/javascript" src="/js/jquery-labelauty.js"></script>
+</html>

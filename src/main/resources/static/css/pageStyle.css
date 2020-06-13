@@ -1,0 +1,410 @@
+/* 定义字体 */
+@font-face{
+    font-family: OPPOSans-M;
+    src: url("../font/OPPOSans-M.ttf");
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    background-color: #F5F5F5;
+}
+
+html,body,h1,h2,h3,td,th,input,a,i,span,ul,li{
+    font-family: OPPOSans-M;
+}
+
+canvas{
+    display:block;
+}
+
+/*搜索框*/
+
+.select{
+    float: right;
+    margin-top: 12px;
+}
+
+/* reset webkit search input browser style */
+.select input {
+    outline: none;
+}
+.select input[type=search] {
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none; /* remove the search and cancel icon */
+}
+
+/* search input field */
+.select input[type=search] {
+    background: #ededed no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 6px 2px 6px 10px;
+    width: 150px;
+
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+.select input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #6dcff6;
+
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+/* placeholder */
+.select input:-moz-placeholder {
+    color: #999;
+}
+.select input::-webkit-input-placeholder {
+    color: #999;
+}
+
+/* demo B */
+.select-b input[type=search] {
+    width: 1px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+.select input[type=search]:hover {
+    background-color: #fff;
+}
+.select input[type=search]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+.select input:-moz-placeholder {
+    color: transparent;
+}
+.select input::-webkit-input-placeholder {
+    color: transparent;
+}
+.select button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 9px;
+}
+
+
+.soul-logo{font-size: 30px !important;margin-left: 10%;color: #3273dc;}
+.soul-logo img{width: 120px;height: 60px;}
+.layer{height: 500px !important; z-index: 2;position:absolute;width: 350px;border-radius: 5px;height: 420px;background: white;box-shadow: 0px 0px 5px #333333;top: 50%;left: 50%;margin-top: -250px;margin-left: -175px;transition: all 1s;-moz-transition: all 1s;	/* Firefox 4 */-webkit-transition: all 1s;	/* Safari 和 Chrome */-o-transition: all 1s;	/* Opera */}
+.layer-top{font-size: 24px;margin-top: 40px;padding-left: 40px;box-sizing: border-box;color: #333333;}
+.layer-center{width: 100%;box-sizing: border-box;padding: 0 40px;margin-bottom: 15px; margin-top: 10px;}
+.layer-center-img{width: 20px;height: 20px;float: left;margin-top: 5px;margin-top: 20px;}
+.layer-center-img>img{width: 100%;}
+.layer-center-input{float: left;width: 230px;margin-left: 15px;height: 30px;position: relative;}
+.layer-center-input input{margin-top: 20px; z-index: 2;transition: all 0.5s;padding-left: 10px;color: #333333;width: 100%;height: 30px;border: 0;border-bottom: 1px solid #cccccc;border-top: 1px solid #ffffff;border-left: 1px solid #ffffff;border-right: 1px solid #ffffff;box-sizing: border-box;outline: none;position: relative;}
+.layer-center-input input:focus{border: 1px solid dodgerblue;}
+.layer-center-input:nth-last-child(1){float: left;width: 230px;margin-left: 15px;height: 30px;position: relative;display: flex;}
+.layer-center-input:nth-child(4){float: left;width: 230px;margin-left: 15px;height: 30px;position: relative;display: flex;}
+.layer-center-input-text{background: white;padding: 0 5px;position: absolute;z-index: 0;opacity: 0;height: 20px;top: 50%;margin-top: -10px;font-size: 14px;left: 0px;color: dodgerblue;line-height: 20px;transition: all 0.5s;-moz-transition: all 0.5s;	/* Firefox 4 */-webkit-transition: all 0.5s;	/* Safari 和 Chrome */-o-transition: all 0.5s;	/* Opera */}
+.layer-center-input input:focus~.layer-center-input-text{top: 0;z-index: 3;opacity: 1;margin-top: -1px;}
+.layer.active{-webkit-animation: login-small 0.8s ; animation: login-small 0.8s ;animation-fill-mode:forwards;-webkit-animation-fill-mode:forwards}
+.layer-button{ display: block; cursor: pointer;width: 250px;text-align: center;height: 40px;line-height: 40px;background-color: dodgerblue;border-radius: 5px;margin: 0 auto;margin-top: 50px;color: white;}
+.layui-btn{display: block; width: 250px; margin: 0 auto;margin-top: 15%;background-color: #3273dc;}
+.layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{background-color: #3273dc!important;}
+.forget-pass{display: block;text-align: center;font-size: 10px;margin-top: 8%; color: #3273dc;}
+.reg-it{display: block;text-align: center;font-size: 10px;margin-top: 5%;}
+.reg-it a{color: #3273dc;}
+.login-it{display: block;text-align: center;font-size: 10px;margin-top: 5%;}
+.login-it a{color: #3273dc;}
+.get-reg-mail{width: 70%;height: 130%;margin-top: 5%;text-align: center !important;padding: 0}
+.reg-canvas{width:100px; height:40px; margin-top: 5%;}
+.login-canvas{width:100px; height:40px; margin-top: 5%;}
+.check-rember-me{margin-top: 15%!important;}
+/*按钮圆角*/
+.layui-btn-radius{border-radius: 10px;}
+
+.layui-layout-admin .layui-header{background-color: white;}
+.layui-main{margin: 0 !important;}
+.soul-head .layui-nav{background-color: white !important;}
+/*设置导航栏三角形标志的颜色*/
+.layui-nav .layui-nav-more{border-top-color:rgba(2, 2, 2, 0.7)}
+.layui-nav-mored,.layui-nav-itemed>a .layui-nav-more{border-color:transparent transparent rgb(2, 2, 2, 0.7) !important}
+
+.layui-nav *{font-size: 15px; font-style: #000;}
+.soul-head .layui-nav-item a{color: #000 !important;}
+.layui-this a{color: #000 !important;}
+.layui-nav .layui-this:after {background-color: #3273dc !important;}
+.layui-nav-bar{background-color: #3273dc !important;}
+.soul-user-menu{float: right;margin-right: 10%;margin-left: 2%;}
+.img-logo{margin-left: 5%; margin-right: 5%;}
+
+
+/*首页第二版设计*/
+.index-body{width: 100%;height: 100%;}
+
+.index-body-website-mess{height: 180px;margin-top: 15px;float: left;background-color: white;border-radius: 10px;margin-left: 3%;}
+.index-body-website-mess_1{padding: 15px;}
+.index-body-website-mess_1 button{width: 150px;background-color: #3273dc;margin-top: 5%;}
+.index-body-website-mess_1_info{margin-top: 10%;text-align: center;font-size: 18px;}
+.index-body-website-mess_1_info p{margin-bottom: 20px;}
+
+.index-body-website-mess img{width: 60px;height: 60px;float: left;}
+.index-body-website-mess_1 span{margin-left: 25%;margin-top:5px;display: block;}
+
+.index-body-notification-area{height: 300px;margin-top: 15px;float: right;margin-right: 3%;border-radius: 10px;background-color: white;}
+.index-body-notification-area-body{padding: 15px;}
+.index-body-notification-area-body img{width: 100%;height: 90%;float: left;}
+.index-body-notification-area-body p{font-size: 22px;margin-left: 70%;display: block;margin-top: 5%;}
+.index-body-notification-area-body button{width: 100px;background-color: #3273dc;margin-top: 5%;}
+
+
+.index-body-class{margin-top: 15px;float: left;background-color: white;border-radius: 10px;}
+.index-body-class-title{padding: 15px 15px 0 15px;}
+.index-body-class-body{width: 90%;display: block;height: 15%;padding: 8px 0 5px 0;margin: 5px auto;font-size: 15px;}
+.index-body-class-body:hover{background-color: #DCDCDC;border-radius: 5px;color: #3273dc;}
+
+
+.index-body-class-a{margin-left: 15px;margin-top: 10px;}
+.index-body-class-a a{padding-right: 40px;}
+.index-body-class-a a:hover{color: #3273dc;}
+
+.index-body-recommend{float: right;border-radius: 10px;background-color: white;margin-top: 15px;width: 30%;margin-top: 25px;}
+.index-body-recommend-body{padding: 15px;}
+/*推荐文章*/
+.recommendArticleArea h3{margin-bottom: 10px;}
+.recommendArticleIcon{margin-top: 5px;}
+.recommendArticle span{color: #778899;margin-bottom: 5px;display: block;}
+
+
+
+.index-body-articleList{float: left;}
+.index-body-article{padding:15px;margin-top: 15px;float: left;border-radius: 10px;background-color: white;}
+.article-head{color: #778899;}
+.article-head a{color: #778899;}
+.article-head a:hover{color: #3273dc;}
+.article-body a{display:block;font-size: 20px;margin-top: 10px;color: #333;margin-bottom: 5px;}
+.article-body a:hover{color: #3273dc;}
+.article-body-title{width: 80%;float: left;}
+.article-head-userHeadPortrait{width: 20%;}
+.article-head-userHeadPortrait img{width: 40px;height: 40px;float: right;margin-top: -20px;border-radius: 50%;}
+.article-body .article-introduce{font-size: 15px;margin-top: 10px;letter-spacing: 1px;line-height:25px;color: #727272;}
+.article-introduce p{float: left;}
+.index-page{display: block;margin: 5% auto;}
+.previous-page{display: block;float: left; text-align: center;background-color: white; padding: .55em .75em .55em .75em;border-radius: 5px;}
+.next-page{display: block;float: right;text-align: center;background-color: white; padding: .55em .75em .55em .75em;border-radius: 5px;}
+.index-page ul{display: flex;text-align: center;justify-content: center;}
+.index-page ul li{display: inline;background-color: white;padding: .55em .85em .55em .85em;margin-left: 5px;border-radius: 5px;}
+.index-page ul li a{}
+
+.oneClassArticleTitle{background-color: white;border: 1px solid white;height: 40px;border-radius: 10px;}
+.oneClassArticleTitle_1{padding: 10px 15px;}
+
+
+
+
+/*!*侧边栏*!
+.side-column{width: 23%; height: 80%; border: 0px solid rgba(19, 18, 18, 0.867); float: left;}
+.side-a{margin-top: 15%;}
+.side-column a{display: block; margin-left: 40%;margin-top: 5%;font-size: 18px; color: #778899;transition: 0.5s;}
+.side-column a:hover{color: #009688;}
+.release-btn_1 {margin-top: 18%; width: 60%;margin-left: 40%;}
+.release-btn_2{margin-top: 18%; width: 90%;margin-left: 5% !important;}
+
+.after-login .layui-icon{font-size: 15px;}*/
+
+/*个人中心*/
+.personalCenter-back{height:28%;background-color: #595A5D;margin:0 auto;}
+.personalCenter-head{width: 50%;height:50%;background-color: #595A5D;text-align: left;color: #fff;padding: 30px 0 30px 250px;margin:0;}
+.personalCenter-head img{height: 96px;width: 96px;border-radius:96px;border: 4px solid #fff;float: left;}
+.personalDate{padding-top: 10px;padding-left: 130px;}
+.personalCenter-head .userName{font-size: 28px;}
+.personalCenter-head ul{width: 30%;margin-top: 15px;}
+.personalCenter-head ul li{display: inline-block;}
+.personalCenter-head ul span{margin-right: 10px;}
+.personalCenter-head .layui-icon{color: #7fba00;}
+.userSexMan{color: #1E90FF!important;font-size: 22px;margin-left: 20px;}
+.userSexWoman{color: #FFC0CB!important;font-size: 22px;margin-left: 20px;}
+.personalIntroduce{width: 500px;display: block;margin-left: -10px;}
+.personalIntroduce p{height: 30px;padding-top: 10px;margin-left: 10px;}
+
+/*个人中心左侧导航栏*/
+.personalOperationMenu{height: 20%;margin-top: 2%;}
+.personalOperationMenu ul{float: right;margin-right: 10%;}
+.personalOperationMenu ul li{margin-top: 20px;}
+.personalOperationMenu ul a{font-size: 15px;color: #778899;}
+.personalOperationMenu ul a:hover{color: #009688;}
+
+/*个人中心文章管理*/
+.personalOperation{float: left;margin-top: 2%;margin-left: 2%;}
+.personalOperation-article-list img{height: 75px;width: 75px;float: left;}
+.personalOperation-article-list{width: 100%;height: 30%;float: left;margin-bottom: 5%;}
+.personalOperation-article{margin-top: 10px; width: 60%;}
+.personalOperation-article .layui-icon{color: #7fba00;}
+.personalOperation-article ul li{margin-left: 3%;font-size: 18px;display: inline-block;}
+.personalOperation-article-userName{font-weight: bold;}
+.personalOperation-article a{margin-left: 3%;font-size: 15px;margin-top: 10px;display: inline-block;}
+.experience-strip{width: 75px;margin-top: 7px;}
+.user-version{display: block; margin-top: 20px;margin-left: 20px;margin-top: 25px;width: 50px;}
+.personalOperation-article-but li{display: inline-block;}
+.personalOperation-article-but a{display: block;height: 20px; border: 0px solid #595A5D!important;font-size: 15px;background-color: #F5F5F5;text-align: center;border-radius: 10px;padding-top: 2px;}
+.personalOperation-article-but a:hover{background-color: #babf9c;color: white;}
+/*.personalOperation-article-but li button{width: 50px;border: 0px solid #595A5D!important;font-size: 15px;background-color: #F5F5F5;}
+.personalOperation-article-but li button:hover{background-color: #babf9c;color: white;}*/
+
+
+
+/*用户个人资料*/
+.personalInformation-form{font-size: 15px;}
+.personalInformation-form img{width: 70px;height: 70px;float: left;}
+.personalInformation-form input{width: 60%;background-color: #eaedf1;border-radius: 5px;}
+.personalInformation-form fieldset{border: 4px solid #eaedf1;border-radius: 5px;width: 170%;}
+.personalInformation-form label{width: 60px;padding-left: 0px;font-size: 15px;}
+.personalInformation-form .layui-textarea{width: 70%;resize: none;background-color: #eaedf1;border-radius: 5px;}
+.personalInformation-form .layui-input-block{margin-left: 0px;}
+.personalInformation-form .layui-btn{display: inline-block;width: 100px;margin-top: 3%;float: right;border-radius: 5px;}
+.personalInformation-form-experience-strip{width: 40%;display: inline-block;}
+
+/*个人主页(其他用户可见)*/
+.personalHomePage{margin-top: 15px;}
+.personalHomePageContent{margin-left: 150px;}
+.personalHomePageMenu{margin-top: 15px;margin-left: 150px;}
+.personalHomePageMenu ul{display: flex;}
+.personalHomePageMenu a{padding-right: 40px;font-size: 15px;}
+.personalHomePageMenu a:hover{color: #3273dc;}
+
+.follow{border: 1px solid #3273dc;background-color: transparent;float: right;width: 100px;margin: 0;color: #3273dc;height: 45px;}
+
+
+.text-list{width: 75%;float: left;margin-top: 3%}
+/*.text-area{width: 86%;margin-top: 3%;margin-left: 5%;height: 80px;}
+.text-area a{font-size: 14px;margin-top: 10%}
+.text-area h3{width: 50%;float:left;margin-top: 10px;margin-left: 10px;}
+.text-area ul{margin-top: 1%;}
+.comment-quantity-icon{font-size: 20px;margin-top: 10px;margin-right: 20px;float: right;}
+.text-date{font-size: 15px; margin-left: 60px;margin-top: 20px!important;}
+.userHeadPortrait{height: 40px;float: left;margin-top: 10px;margin-left: 10px;}*/
+
+.text-area img{width: 40px;height: 40px;display: inline-block;float: left;margin-top: 5px;margin-left: 5px;}
+.text-area{margin-bottom: 5px;margin-left: 50px;height: 80px;padding: 10px 10px 10px 10px}
+
+.text-area-head{margin-top: 10px; width: 100%;}
+.text-area-head .layui-bg-green{background-color: #D09696!important;}
+.text-area-head .layui-icon{color: #7fba00;}
+.text-area-head ul li{margin-left: 3%;font-size: 18px;display: inline-block;}
+.text-area-head a{margin-left: 3%;font-size: 15px;margin-top: 10px;display: inline-block;}
+.text-area-date{margin-left: 10px;margin-bottom: 10px;}
+.text-area-information{margin-left: 55px;}
+.text-area-information span{margin-bottom: 5px;}
+.text-area a:hover{color: #333;}
+.text-area:hover{background-color: #DCDCDC;border-radius: 5px;}
+
+/*文章内容*/
+/*
+.text-information{width: 100%;padding: 0;}
+.text-information-head img{height: 40px;}
+.text-information-head{padding: 30px 0 30px 0;text-align: center;color: white;margin: 0;}
+.text-information-background{background-color: #D09696;width: 100%;height: 20%; margin: 0;}
+.text-body pre{font-size: 16px}
+.text-body{width: 75%;margin-top: 2%;float: right;margin-right: 5%;}
+.notice{float: right;margin-top: 3%;}
+.notice h3{margin-top: 5%;margin-left: 10%;}*/
+.article-container{margin-top: 15px;padding: 0;}
+.article-body-area{background-color: white;float: left;margin-left:2%;margin-left: 10%;border-radius: 10px;padding:15px;border-left: #5CACEE solid 3px;}
+/*.article-body-content{padding: 15px;}
+.article-body-content pre{font-size: 16px;margin-top: 2%;}
+.article-body-content img{width: 50px;height: 50px;}*/
+.article-body-head{color: #778899;margin-bottom: 0.5rem;}
+.article-body-head a{color: #778899;}
+.article-body-head a:hover{color: #3273dc;}
+.article-body-area h1{margin-bottom: 1.5rem;}
+.article-body-content{font-size: 1.0rem;line-height: 1.8;letter-spacing: 0.013rem;}
+.article-body-content p{margin-block-end: 1em;color: #4E4E4E;}
+
+/*文章信息卡片*/
+.article-card{background-color: white;float: left;margin-left:10%;border-radius: 10px;padding:15px;margin-top: 2%;border-left: #5CACEE solid 3px;}
+.article-card-body{padding: 15px;font-size: 1.0rem;line-height: 1.8;letter-spacing: 0.013rem;}
+.article-card-body a{color: #3273dc;}
+.article-card-body a:hover{color: #3273dc;}
+
+.article-admire{background-color: white;float: left;margin-left:10%;border-radius: 10px;padding:15px;margin-top: 2%;border-left: #5CACEE solid 3px;}
+.article-admire-body{padding: 15px;font-size: 1.0rem;line-height: 1.8;letter-spacing: 0.013rem;}
+.article-admire-body p{display: block;text-align: center;}
+.article-admire-body .admire{margin: 0 auto;display: table;}
+
+/*文章分享*/
+.article-comment{background-color: white;float: left;margin-left: 10%;border-radius: 10px;margin-bottom: 2%;margin-top: 2%;border-left: #5CACEE solid 3px;}
+.article-comment-body{padding: 15px;font-size: 1.0rem;line-height: 1.8;letter-spacing: 0.013rem;width: 90%;}
+.article-comment-headPortrait{float: left;}
+.article-comment-headPortrait img{width: 40px;height: 40px;}
+.article-comment-body-content{float: right;padding-top: 0;}
+.article-comment-body-content .layui-input-block{width: 100%;margin: 0;}
+.article-comment-body-content .layui-form-text{}
+.article-comment-body-content .layui-btn{margin: 0;width: 80px;float: right;}
+.article-bottom{background-color: white;float: left;border-radius: 10px;margin-bottom: 2%;height: 200px;}
+
+.comment-body{padding:15px;}
+.comment-body-head{text-align: left;margin:0;}
+.comment-body-title{font-size: 1.0rem;}
+.reply-btn{display: inline;margin: 0;float: right;width: 45px;height: 20px;font-size: 5px;line-height: 0;padding: 0 10px;background-color: #babf9c;}
+.it-comment{margin-top: 15px;}
+.comment-body-head img{height: 56px;width: 56px;border-radius:96px;border: 4px solid #fff;float: left;border-radius: 50%;margin-right: 0;}
+.comment-body-mess{padding-left: 70px;}
+.comment-body-content{margin-top: 10px;padding-left: 70px;line-height: 1.8;letter-spacing: 0.013rem;}
+
+
+/*文章分享*/
+.article-share-area{position: fixed;height: 100%;}
+.article-share{float: right;margin-top: 100%;margin-right: 40px;}
+.article-share a{font-size: 30px;display: block;margin-bottom: 150%;}
+.article-share p{font-size: 10px;display: block;}
+.article-share a:hover{transform: scale(1.5);}
+
+/*关于作者*/
+.about-author{padding: 15px;}
+.about-author-title p{padding-bottom: 15px;font-size: 1.0rem;}
+.about-author-body{padding-top: 15px;margin-bottom: 15px;height: 40px;}
+.about-author-body img{width: 40px;height: 40px;float: left;border-radius: 50%;}
+.about-author-personalDate{margin-left: 30%;font-size: 1.0rem;}
+.about-author-article{float: left;margin-top: 10px;}
+.about-author-article{text-align: center;font-size: 15px;}
+.about-author-article p{padding-bottom: 15px;}
+.about-author-article .layui-icon{font-size: 25px;color: #3273dc;}
+
+
+/*我的问答*/
+.about-myself-personalDate{margin-left: 20%;font-size: 1.0rem;}
+.about-myself-question{float: left;margin-top: 10px;}
+.about-myself-question div{padding: 5px;}
+
+
+
+/*关于作者*/
+.about-the-author{background-color: white;float: right;width: 22%;border-radius: 10px;transition: all 1s;}
+
+/*作者相关推荐*/
+.article-recommend{margin-top: 2%;background-color: white;float: right;width: 22%;border-radius: 10px;transition: all 1s;}
+
+
+
+.article-recommend-body{padding: 15px;}
+/*
+.article-recommend-body-b p{margin-bottom: 20px;}
+.article-recommend-body-b img{width: 100px;height: 80px;}
+.article-recommend-body-b-title span{color: #778899;margin-bottom: 0.5rem;}
+.article-recommend-body-b-title p{font-size: 0.9rem;line-height: 1.2;letter-spacing: 0.013rem;color: #4E4E4E;}
+*/
+
+.create-article-title{margin-left: 0;margin-top: 15px;}
+.create-article-footer{border-top:1px solid rgba(0, 0, 0, 0.4);margin-top: 10px;background-color: white;position: fixed;width:100%; height: 50px;bottom: 0;}
+.create-article-footer button{margin-top: 0;width: 70px;float: right;margin-top: 5px;margin-left: 3%;}
+
+.article-bottom-content{padding: 15px;}

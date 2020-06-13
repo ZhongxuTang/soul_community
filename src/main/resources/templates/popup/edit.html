@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/jquery-labelauty.css">
+
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+
+    <style>
+        ul { list-style-type: none;}
+        li { display: inline-block;}
+        li { margin: 10px 0;}
+    </style>
+</head>
+
+<body>
+    <div style="padding: 10px;">
+        <form>
+            <div class="layui-form-item" style="margin-bottom: 0;">
+                    <input type="text" name="quertionIntroduction" id="article-title" required  lay-verify="quertionIntroduction" placeholder="用一句话描述您的问题" autocomplete="off" class="layui-input">
+                    <span class="article-class">分类</span>
+                    <ul class="dowebok" style="display: inline-flex; list-style-type: none;">
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="测试文章" value="1" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="JAVA" value="2" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="操作系统" value="3" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty=".NET" value="5" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="数据结构" value="6" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="C++" value="7" onclick="check_count(this)"></li>
+                        <li style="display: inline-block; margin: 10px 5px;"><input type="checkbox" name="checkbox" data-labelauty="LeetCode" value="8" onclick="check_count(this)"></li>
+                    </ul>
+
+                    <textarea id="edit"></textarea>
+                        <div class="layui-input-block" style="float: right;margin: 15px 0 0 0">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo" style="background-color: #00a8c6;">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+<script>
+    $(function(){
+        $(':input').labelauty();
+    });
+
+    //标签复选框数量限制
+    function check_count(obj) {
+        var length =  $('input[name="checkbox"]:checked').length;
+        if (length > 1){
+            obj.checked=false;
+            layer.msg("只能选择一个标签");
+        }
+    }
+
+    layui.use(['layer','layedit','form'], function(){
+        var layedit = layui.layedit;
+        var layer = layui.layer
+            ,form = layui.form;
+        var $ = layui.$;
+        var index = layedit.build('edit'); //建立编辑器
+
+
+        form.on('submit(formDemo)', function(data){
+
+            var quertionIntroduction = $('input[name=quertionIntroduction]').val();
+            if (quertionIntroduction.length == 0){
+                console.log(quertionIntroduction);
+                layer.msg("标题不能为空");
+                return false;
+            };
+            var articleLabelId =$('input[name="checkbox"]:checked').val();
+            if (typeof(articleLabelId) == "undefined"){
+                layer.msg("请选择一个标签");
+                return false;
+            };
+            var content = layedit.getText(index);
+            if (content.length == 0){
+                layer.msg("问题不能为空");
+                return false;
+            };
+
+            var quertiondata={
+                "quertionTitle":quertionIntroduction,
+                "articleLabelId":articleLabelId,
+                "quertionContent":content,
+            };
+
+            $.ajax({
+                type:"POST",
+                url:"/questionModel/postQuestion",
+                data:quertiondata,
+                success:function (res) {
+                    if (res.success){
+                        layer.msg('问题提交成功',{
+                            icon: 1,
+                            time: 2000
+                        },function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            parent.layer.close(index);
+                        });
+
+                    } else {
+                        layer.msg(res.errorInfo);
+                    }
+                }
+            });
+
+
+            return false;
+        });
+    });
+
+
+
+</script>
+<script type="text/javascript" src="/js/jquery-labelauty.js"></script>
+</html>

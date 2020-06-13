@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+logging:
+  com.soul.soul_community: info
+
+articleLucenePath: F:/soul_community/lucenePath/article
+
+questionLucenePath: F:/soul_community/lucenePath/question
+
+
+#articleLucenePath: /usr/soul/lucenePath/article
+
+#questionLucenePath: /usr/soul/lucenePath/question

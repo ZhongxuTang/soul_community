@@ -1,0 +1,5 @@
+# soul_community
+基于SpringBoot的社区系统
+
+clone项目后需修改application中的相关配置
+由于测试时lucene直接使用了本地地址，所以需要在application中修改

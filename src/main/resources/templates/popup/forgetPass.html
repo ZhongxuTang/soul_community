@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" media="screen" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/pageStyle.css"/>
+    <script type="text/javascript" src="/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+<div class="layer">
+    <div class="layer-top">
+        忘记密码
+    </div>
+    <form class="soul-form layui-form" method="POST" id="test">
+        <div class="layer-center clearfix">
+            <div class="layer-center-img layui-icon layui-icon-username" style="font-size: 25px;"></div>
+            <div class="layer-center-input">
+                <input type="article" class="layui-input " name="userEmail"  lay-verify="reg_username" value="" placeholder="请输入您的邮箱" autocomplete="off"
+                       onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的邮箱'"/>
+            </div>
+        </div>
+
+        <div class="layer-center clearfix">
+            <div class="layer-center-img layui-icon layui-icon-email" style="font-size: 25px;"></div>
+            <div class="layer-center-input">
+                <input type="article " class="layui-input" name="regVerNumber" value=""  lay-verify="reg_number"  placeholder="邮箱验证码" autocomplete="off"
+                       onfocus="this.placeholder=''" onblur="this.placeholder='邮箱验证码'"/>
+                <button class="get-reg-mail layui-btn layui-btn-lg" id="get-mail" lay-filter="get-mail" lay-submit>获取验证码</button>
+            </div>
+        </div>
+
+        <div class="layer-center clearfix">
+            <div class="layer-center-img layui-icon layui-icon-password" style="font-size: 25px;"></div>
+            <div class="layer-center-input">
+                <input type="password" class="layui-input" name="userPassword" value=""  lay-verify="login_password"  placeholder="请输入您的新密码" autocomplete="off"
+                       onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的新密码'"/>
+            </div>
+        </div>
+
+        <div class="layer-center clearfix">
+            <div class="layer-center-img layui-icon layui-icon-vercode" style="font-size: 25px;"></div>
+            <div class="layer-center-input">
+                <input type="article" class="input-val layui-input" name="reg_verify" value=""  lay-verify="reg_verify"  placeholder="请输入验证码" autocomplete="off"
+                       onfocus="this.placeholder=''" onblur="this.placeholder='请输入验证码'"/>
+                <canvas id="canvas" class="reg-canvas"></canvas>
+            </div>
+        </div>
+
+        <button class="layui-btn layui-btn-lg" lay-submit lay-filter="forgetPass">确认修改</button>
+    </form>
+</div>
+
+<script src="/js/verify.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+server:
+  port: 4545
+  servlet:
+    context-path: /
+
+uploadPath: /img/userArticleImg
+
+#数据源配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/soul?serverTimezone=GMT%2B8
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #配置freemarker
+  freemarker:
+    #设置模板后缀名
+    suffix: .ftl
+    #设置文档类型
+    content-type: text/html
+    #设置页面编码格式
+    charset: utf-8
+    #设置页面缓存
+#    cache: false
+  resources:
+    static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/templates/
+  mail:
+    host: #host
+    username: #邮箱地址
+    password: #密码
+    port: 465
+    #使用了465 SSL端口，不加下面的配置会报Could not connect to SMTP host: smtp.qq.com, port: 465
+    properties.mail.smtp.ssl.enable: true
+  profiles:
+    active: dev
+
